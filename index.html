@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="css/tachyons.min.css">
     <link rel="stylesheet" href="fonts/stylesheet.css">
     <link rel="stylesheet" href="css/custom.css">
+    <script>
+        document.addEventListener('click', function (event) {
+            var target = event.target;
+            if (target.tagName.toLowerCase() == 'a') {
+                var port = target.getAttribute('href').match(/^:(\d+)(.*)/);
+                if (port) {
+                    target.href = window.location.origin;
+                    target.port = port[1];
+                }
+            }
+        }, false);
+    </script>
 </head>
 
 <body class="bg-black-90  gold">
@@ -30,11 +42,8 @@
     <h2>Table of Contents</h2>
     <ul>
         <li>
-            <a class="bg-gold hover-bg-yellow  black-90 pa1 no-underline" href="http://prometheus.local:8096/">
+            <a class="bg-gold hover-bg-yellow  black-90 pa1 no-underline" href=":8096/">
                 Watch movies or TV shows
-            </a>, or
-            <a class="bg-gold hover-bg-yellow  black-90 pa1 no-underline" href="http://192.168.0.36:8096">use this link
-                if it doesn't work</a>
         </li>
     </ul>
 </body>
